@@ -11,9 +11,11 @@ import Footer from './components/Footer';
 import DecryptionPrompt from './components/DecryptionPrompt';
 import { setupScrollReveal } from './utils/scrollReveal';
 import { generateRandomText } from './utils/encryption';
+import ThemeToggleButton from './components/ThemeToggleButton';
 
 function App() {
   const [isDecrypted, setIsDecrypted] = useState(false);
+  const [isBright, setIsBright] = useState(false);
 
   useEffect(() => {
     // Setup scroll reveal animations
@@ -27,6 +29,15 @@ function App() {
       observer.disconnect();
     };
   }, []);
+
+  useEffect(() => {
+    // Change background color on theme toggle
+    if (isBright) {
+      document.body.classList.add('bright-theme');
+    } else {
+      document.body.classList.remove('bright-theme');
+    }
+  }, [isBright]);
 
   const handleDecrypt = () => {
     setIsDecrypted(true);
@@ -45,6 +56,11 @@ function App() {
       
       {/* Custom cursor */}
       <Cursor />
+      
+      {/* Theme toggle button */}
+      <div className="fixed top-6 right-6 z-50 hidden md:block">
+        <ThemeToggleButton isBright={isBright} onToggle={() => setIsBright((b) => !b)} />
+      </div>
       
       {/* Navigation */}
       <Navbar decryptContent={decryptContent} />

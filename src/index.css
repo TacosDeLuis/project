@@ -11,6 +11,15 @@
     @apply bg-primary-950 text-gray-100 font-sans;
     cursor: none;
   }
+  body.bright-theme {
+    background-color: #a0b6d8 !important; /* Tailwind primary-300 */
+    color: #0A192F !important;
+    transition: background-color 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s cubic-bezier(0.4,0,0.2,1);
+  }
+  html body.bright-theme, body.bright-theme * {
+    background-color: #ffffff !important;
+    color: #0A192F !important;
+  }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-sans font-bold tracking-tight;
