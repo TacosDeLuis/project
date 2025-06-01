@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-primary-950 text-gray-100 font-sans;
+    cursor: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer components {
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-block px-5 py-3 rounded-md font-medium transition-all duration-300 cursor-none;
+  }
+
+  .btn-primary {
+    @apply bg-secondary-500 text-primary-950 hover:bg-secondary-600;
+  }
+
+  .btn-outline {
+    @apply border border-secondary-500 text-secondary-500 hover:bg-secondary-500/10;
+  }
+
+  .card {
+    @apply bg-primary-900 rounded-lg overflow-hidden shadow-lg transition-all duration-300;
+  }
+
+  .input {
+    @apply block w-full px-4 py-3 bg-primary-800 border border-primary-700 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary-500 text-gray-100;
+  }
+
+  /* Hide default cursor */
+  * {
+    cursor: none !important;
+  }
+}
+
+/* Animation classes */
+.reveal {
+  @apply opacity-0 transition-all duration-700;
+}
+
+.reveal.active {
+  @apply opacity-100;
+}
+
+.reveal-left {
+  @apply opacity-0 -translate-x-20 transition-all duration-700;
+}
+
+.reveal-left.active {
+  @apply opacity-100 translate-x-0;
+}
+
+.reveal-right {
+  @apply opacity-0 translate-x-20 transition-all duration-700;
+}
+
+.reveal-right.active {
+  @apply opacity-100 translate-x-0;
+}
+
+.reveal-up {
+  @apply opacity-0 translate-y-20 transition-all duration-700;
+}
+
+.reveal-up.active {
+  @apply opacity-100 translate-y-0;
+}
